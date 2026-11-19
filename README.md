@@ -17,7 +17,7 @@ Tech Stack
 3. SQLite JDBC
 4. Maven
 
-## Cara Run (NetBeans)
+Cara Run (NetBeans)
 
 1. Open project `KatalogProduk` di NetBeans.
 2. Clean & Build (`Shift + F11`).
