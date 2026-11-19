@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx/21"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="controller.KatalogController"
+            prefWidth="1000" prefHeight="760"
+            stylesheets="@styles/app.css">
+    <top>
+        <VBox spacing="8" styleClass="header">
+            <Label text="Katalog Produk" styleClass="title"/>
+            <Label text="Isi form, simpan, lalu lihat katalog."
+                   wrapText="true" styleClass="muted"/>
+            <Label text="Nama produk"/>
+            <TextField fx:id="namaField"/>
+            <Label text="Harga (Rp)"/>
+            <TextField fx:id="hargaField"/>
+            <Label text="Foto"/>
+            <HBox spacing="10" alignment="CENTER_LEFT">
+                <StackPane styleClass="preview-box">
+                    <ImageView fx:id="previewView" fitWidth="45" fitHeight="45" preserveRatio="true"/>
+                </StackPane>
+                <ComboBox fx:id="fotoBox" maxWidth="Infinity" HBox.hgrow="ALWAYS"/>
+                <Button text="Pilih File..." onAction="#pilihFoto" styleClass="button-secondary"/>
+            </HBox>
+            <HBox spacing="8">
+                <Button fx:id="simpanBtn" text="Simpan" onAction="#saveProduct"
+                        styleClass="button-primary"/>
+                <Button fx:id="batalBtn" text="Batal" onAction="#batalEdit"
+                        styleClass="button-secondary" visible="false" managed="false"/>
+            </HBox>
+            <Label fx:id="pesanLabel" wrapText="true"/>
+            <HBox spacing="10" alignment="CENTER_LEFT" styleClass="filter-bar">
+                <Label fx:id="jumlahLabel" text="Jumlah produk: 0"/>
+                <Region HBox.hgrow="ALWAYS"/>
+                <TextField fx:id="cariField" promptText="Cari produk..." prefWidth="220"/>
+                <ComboBox fx:id="urutBox" prefWidth="170"/>
+            </HBox>
+        </VBox>
+    </top>
+    <center>
+        <ScrollPane fitToWidth="true" fitToHeight="false">
+            <content>
+                <TilePane fx:id="katalogPane" hgap="16" vgap="16"
+                          alignment="TOP_LEFT" tileAlignment="TOP_LEFT"
+                          styleClass="katalog"/>
+            </content>
+        </ScrollPane>
+    </center>
+</BorderPane>
